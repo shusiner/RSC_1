@@ -93,7 +93,7 @@ class GuardCreate(PermissionRequiredMixin,CreateView):
 
     model = User
     form_class = GuardCreateForm
-    template_name = 'scheduler\guard_create.html'
+    template_name = 'scheduler/guard_create.html'
 
     def get_context_data(self, **kwargs):
         kwargs['user_type'] = 'guard'
@@ -109,7 +109,7 @@ class GuardCreateDone(PermissionRequiredMixin,CreateView):
 
     model = User
     fields = []
-    template_name = 'scheduler\guard_create_done.html'
+    template_name = 'scheduler/guard_create_done.html'
 
 class GuardUpdate(PermissionRequiredMixin,UpdateView):
     permission_required = 'scheduler.manager_view'
@@ -157,7 +157,7 @@ class SiteCreate(PermissionRequiredMixin,CreateView):
 
     model = Site
     fields = ['name', 'location']
-    template_name = 'scheduler\site_create.html'
+    template_name = 'scheduler/site_create.html'
 
     def form_valid(self, form):
         form.save()
@@ -168,7 +168,7 @@ class SiteCreateDone(PermissionRequiredMixin,CreateView):
 
     model = Site
     fields = []
-    template_name = 'scheduler\site_create_done.html'
+    template_name = 'scheduler/site_create_done.html'
     
 class SiteUpdate(PermissionRequiredMixin,UpdateView):
     permission_required = 'scheduler.manager_view'
@@ -203,7 +203,7 @@ class ScheduleCreate(PermissionRequiredMixin,CreateView):
 
     model = Schedule
     fields = ['date', 'is_day', 'is_night']
-    template_name = 'scheduler\schedule_create.html'
+    template_name = 'scheduler/schedule_create.html'
 
     def form_valid(self, form):
         user = self.request.user
@@ -216,7 +216,7 @@ class ScheduleCreateDone(PermissionRequiredMixin,CreateView):
 
     model = Schedule
     fields = []
-    template_name = 'scheduler\schedule_create_done.html'
+    template_name = 'scheduler/schedule_create_done.html'
     
 class ScheduleUpdate(PermissionRequiredMixin,UpdateView):
     permission_required = 'scheduler.guard_view'
